@@ -11,11 +11,11 @@ class TimeUnit extends Enum
 {
     public const SECOND = 'second';
     public const MINUTE = 'minute';
-    public const HOUR = 'hour';
-    public const DAY = 'day';
-    public const WEEK = 'week';
-    public const MONTH = 'month';
-    public const YEAR = 'year';
+    public const HOUR   = 'hour';
+    public const DAY    = 'day';
+    public const WEEK   = 'week';
+    public const MONTH  = 'month';
+    public const YEAR   = 'year';
 
     public static function fromSymbol(string $symbol)
     {
@@ -27,7 +27,7 @@ class TimeUnit extends Enum
 
         $key = $symbol->getKey();
 
-        if (!self::isValidKey($key)) {
+        if (! self::isValidKey($key)) {
             throw new SymbolOutOfRangeException('The symbol ' . $symbol . ' is not defined in ' . __CLASS__);
         }
 

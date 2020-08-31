@@ -11,11 +11,11 @@ class TimeSymbol extends Enum
 {
     public const SECOND = 's';
     public const MINUTE = 'min';
-    public const HOUR = 'h';
-    public const DAY = 'd';
-    public const WEEK = 'w';
-    public const MONTH = 'm';
-    public const YEAR = 'y';
+    public const HOUR   = 'h';
+    public const DAY    = 'd';
+    public const WEEK   = 'w';
+    public const MONTH  = 'm';
+    public const YEAR   = 'y';
 
     public static function fromUnit(string $unit)
     {
@@ -27,7 +27,7 @@ class TimeSymbol extends Enum
 
         $key = $unit->getKey();
 
-        if (!self::isValidKey($key)) {
+        if (! self::isValidKey($key)) {
             throw new TimeUnitOutOfRangeException('The time unit ' . $unit . ' is not defined in ' . __CLASS__);
         }
 
