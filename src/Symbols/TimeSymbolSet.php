@@ -11,7 +11,7 @@ class TimeSymbolSet
     protected array $symbols = [];
 
     /**
-     * @param string $symbol
+     * @param  string $symbol
      * @throws SymbolOutOfRangeException
      */
     public function addSymbol(string $symbol): void

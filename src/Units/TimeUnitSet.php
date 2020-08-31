@@ -11,7 +11,7 @@ class TimeUnitSet
     protected array $units = [];
 
     /**
-     * @param string $unit
+     * @param  string $unit
      * @throws TimeUnitOutOfRangeException
      */
     public function addUnit(string $unit): void
