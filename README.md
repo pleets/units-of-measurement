@@ -76,7 +76,7 @@ $symbols = $timeSet->toArray();
 
 You can convert between units using the Time class.
 
-```
+```php
 use Pleets\Units\Time;
 
 $time = Time::fromUnit('minute', 5);
