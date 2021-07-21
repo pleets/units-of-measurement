@@ -1,17 +1,17 @@
 {
-    "name": "pleets/php-units-of-measure",
-    "description": "Units of Measure",
+    "name": "pleets/units-of-measurement",
+    "description": "PHP Units of Measurement",
     "type": "library",
     "license": "MIT",
     "keywords": [
         "PHP",
-        "Units of Measure",
+        "Units of Measurement",
         "SI Units"
     ],
     "homepage": "https://pleets.org",
     "support": {
-        "issues": "https://github.com/pleets/php-units-of-measure/issues",
-        "source": "https://github.com/pleets/php-units-of-measure"
+        "issues": "https://github.com/pleets/units-of-measurement/issues",
+        "source": "https://github.com/pleets/units-of-measurement"
     },
     "authors": [
         {
