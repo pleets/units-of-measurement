@@ -1,19 +1,23 @@
 <?php
 
-namespace Pleets\Units\Units;
+namespace Pleets\Units\Units\Sets;
 
 use Pleets\Units\Symbols\Exceptions\TimeUnitOutOfRangeException;
-use Pleets\Units\Symbols\TimeSymbol;
 use UnexpectedValueException;
 
-class TimeUnitSet
+abstract class BaseUnitSet
 {
     protected array $units = [];
+
+    abstract protected function symbol(): string;
+
+    abstract protected function unit(): string;
 
     public function addUnit(string $unit): void
     {
         try {
-            new TimeUnit($unit);
+            $unitClass = $this->unit();
+            new $unitClass($unit);
         } catch (UnexpectedValueException $e) {
             throw new TimeUnitOutOfRangeException('The time unit ' . $unit . ' does not exists');
         }
@@ -26,12 +30,13 @@ class TimeUnitSet
         return $this->units;
     }
 
-    public function toArrayWithSymbols()
+    public function toArrayWithSymbols(): array
     {
-        $timeSet = [];
+        $timeSet     = [];
+        $symbolClass = $this->symbol();
 
         foreach ($this->units as $unit) {
-            $timeSet[$unit] = TimeSymbol::fromUnit($unit);
+            $timeSet[$unit] = $symbolClass::fromUnit($unit);
         }
 
         return $timeSet;
