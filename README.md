@@ -4,42 +4,50 @@ This project collects some units of measure and encapsulates symbols and names i
 to handle and interact with it in a more comfortable way.
 
 In this version, the following measures were implemented:
-- Time
 
-You can download this project as follows.
+- Time
+- Information
+
+# Installation
+
+Use following command to install this library:
 
 ```bash
-git clone git@github.com:pleets/php-units-of-measure.git
+composer require pleets/php-units-of-measure
 ```
 
 # Usage
 
 ## Displaying Units and Symbols
 
-You can get the name of a measure as follows
+You can get the name of a unit measure as follows
 
 ```php
 use Pleets\Units\Symbols\TimeSymbol;
 use Pleets\Units\Units\TimeUnit;
+use Pleets\Units\Symbols\InformationSymbol;
+use Pleets\Units\Units\InformationUnit;
 
 // second
 $symbol = TimeUnit::fromSymbol(TimeSymbol::SECOND);
 
-// month
-$symbol = TimeUnit::fromSymbol(TimeSymbol::MONTH);
+// kilobyte
+$symbol = InformationUnit::fromSymbol(InformationSymbol::KILOBYTE);
 ```
 
-As the same way, you can get the symbol of a measure as follows
+As the same way, you can get the symbol of a unit measure as follows
 
 ```php
 use Pleets\Units\Symbols\TimeSymbol;
 use Pleets\Units\Units\TimeUnit;
+use Pleets\Units\Symbols\InformationSymbol;
+use Pleets\Units\Units\InformationUnit;
 
 // s
 $symbol = TimeSymbol::fromUnit(TimeUnit::SECOND);
 
-// h
-$symbol = TimeSymbol::fromUnit(TimeUnit::HOUR);
+// KB
+$symbol = InformationSymbol::fromUnit(InformationUnit::KILOBYTE);
 ```
 
 ## Grouping Units and Symbols
@@ -48,9 +56,9 @@ You can group as units as you need in the following way.
 
 ```php
 use Pleets\Units\Units\TimeUnit;
-use Pleets\Units\Units\TimeUnitSet;
+use Pleets\Units\Units\Sets\TimeUnitSetSet;
 
-$timeSet = new TimeUnitSet();
+$timeSet = new TimeUnitSetSet();
 $timeSet->addUnit(TimeUnit::MINUTE);
 $timeSet->addUnit(TimeUnit::HOUR);
 
@@ -62,9 +70,9 @@ As the same way, you can group as symbols as you need in the following way.
 
 ```php
 use Pleets\Units\Symbols\TimeSymbol;
-use Pleets\Units\Symbols\TimeSymbolSet;
+use Pleets\Units\Symbols\Sets\TimeSymbolSetSet;
 
-$timeSet = new TimeSymbolSet();
+$timeSet = new TimeSymbolSetSet();
 $timeSet->addSymbol(TimeSymbol::MINUTE);
 $timeSet->addSymbol(TimeSymbol::HOUR);
 

@@ -2,12 +2,9 @@
 
 namespace Pleets\Units\Units;
 
-use MyCLabs\Enum\Enum;
 use Pleets\Units\Symbols\TimeSymbol;
-use Pleets\Units\Units\Exceptions\SymbolOutOfRangeException;
-use UnexpectedValueException;
 
-class TimeUnit extends Enum
+class TimeUnit extends BaseUnit
 {
     public const SECOND = 'second';
     public const MINUTE = 'minute';
@@ -17,20 +14,8 @@ class TimeUnit extends Enum
     public const MONTH  = 'month';
     public const YEAR   = 'year';
 
-    public static function fromSymbol(string $symbol)
+    final protected static function symbol(): string
     {
-        try {
-            $symbol = new TimeSymbol($symbol);
-        } catch (UnexpectedValueException $e) {
-            throw new SymbolOutOfRangeException('The symbol ' . $symbol . ' does not exists');
-        }
-
-        $key = $symbol->getKey();
-
-        if (! self::isValidKey($key)) {
-            throw new SymbolOutOfRangeException('The symbol ' . $symbol . ' is not defined in ' . __CLASS__);
-        }
-
-        return self::toArray()[$key];
+        return TimeSymbol::class;
     }
 }

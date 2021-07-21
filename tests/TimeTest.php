@@ -34,7 +34,7 @@ class TimeTest extends TestCase
     /**
      * @test
      */
-    public function itReturnsTheUnitSymbolAndQuantity()
+    public function itReturnsTheUnitTheSymbolAndQuantity()
     {
         $time = Time::fromUnit('minute', 120);
 
@@ -45,7 +45,7 @@ class TimeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider singleUnitToUnitsProvider
+     * @dataProvider singleTimeUnitsProvider
      */
     public function itChangesTheUnit(string $unit)
     {

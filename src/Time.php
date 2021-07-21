@@ -5,12 +5,9 @@ namespace Pleets\Units;
 use Pleets\Units\Symbols\TimeSymbol;
 use Pleets\Units\Units\TimeUnit;
 
-class Time
+class Time extends BaseUnitOfMeasurement
 {
-    public const UNIT_MODE   = 'unit';
-    public const SYMBOL_MODE = 'symbol';
-
-    private const CONVERSIONS = [
+    protected const CONVERSIONS = [
         TimeUnit::SECOND => 1,
         TimeUnit::MINUTE => 60,
         TimeUnit::HOUR   => 60 * 60,
@@ -20,58 +17,14 @@ class Time
         TimeUnit::YEAR   => 60 * 60 * 24 * 30 * 12,
     ];
 
-    protected $unit;
-    protected $symbol;
-    protected $quantity;
-
-    public function __construct(string $identifier, $quantity, $mode = self::UNIT_MODE)
+    protected function symbol(): string
     {
-        if ($mode == self::UNIT_MODE) {
-            $this->setFromUnit($identifier);
-        }
-
-        if ($mode == self::SYMBOL_MODE) {
-            $this->setFromSymbol($identifier);
-        }
-
-        $this->quantity = $quantity;
+        return TimeSymbol::class;
     }
 
-    public function getSymbol(): string
+    protected function unit(): string
     {
-        return $this->symbol;
-    }
-
-    public function getUnit(): string
-    {
-        return $this->unit;
-    }
-
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    private function setFromSymbol(string $symbol)
-    {
-        $this->symbol = $symbol;
-        $this->unit   = TimeUnit::fromSymbol($symbol);
-    }
-
-    private function setFromUnit(string $unit)
-    {
-        $this->unit   = $unit;
-        $this->symbol = TimeSymbol::fromUnit($unit);
-    }
-
-    public static function fromSymbol(string $symbol, $quantity): self
-    {
-        return new self($symbol, $quantity, self::SYMBOL_MODE);
-    }
-
-    public static function fromUnit(string $unit, $quantity): self
-    {
-        return new self($unit, $quantity, self::UNIT_MODE);
+        return TimeUnit::class;
     }
 
     public function toSeconds(): self
@@ -126,38 +79,5 @@ class Time
         $this->convertTo(TimeUnit::YEAR);
 
         return $this;
-    }
-
-    private function convertTo(string $unit): void
-    {
-        if ($this->unit === $unit) {
-            return;
-        }
-    
-        $seconds        = self::CONVERSIONS[$this->unit];
-        $this->quantity = $this->quantity * $seconds / self::CONVERSIONS[$unit];
-        $this->setFromUnit($unit);
-    }
-
-    public function toString($symbol = true): string
-    {
-        if ($symbol) {
-            $unit = $this->symbol;
-        } else {
-            $unit = $this->quantity !== 1 ? ' ' . $this->unit . 's' : ' ' . $this->unit;
-        }
-
-        return $this->quantity . $unit;
-    }
-
-    public function toFixedString($precision = 2, $symbol = true): string
-    {
-        if ($symbol) {
-            $unit = $this->symbol;
-        } else {
-            $unit = $this->quantity !== 1 ? ' ' . $this->unit . 's' : ' ' . $this->unit;
-        }
-
-        return round($this->quantity, $precision) . $unit;
     }
 }
