@@ -1,9 +1,9 @@
 <?php
 
-namespace Pleets\Units\Units;
+namespace Pleets\Units;
 
-use Pleets\Units\BaseUnitOfMeasurement;
 use Pleets\Units\Symbols\InformationSymbol;
+use Pleets\Units\Units\InformationUnit;
 
 class Information extends BaseUnitOfMeasurement
 {
