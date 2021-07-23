@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Pleets\Units\Units\Information;
+use Pleets\Units\Information;
 use Pleets\Units\Units\InformationUnit;
 use Tests\Concerns\HasUnits;
 
