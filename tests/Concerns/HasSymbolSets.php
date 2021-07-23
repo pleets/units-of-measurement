@@ -3,8 +3,8 @@
 namespace Tests\Concerns;
 
 use Pleets\Units\Symbols\InformationSymbol;
-use Pleets\Units\Symbols\Sets\InformationSymbolSetSet;
-use Pleets\Units\Symbols\Sets\TimeSymbolSetSet;
+use Pleets\Units\Symbols\Sets\InformationSymbolSet;
+use Pleets\Units\Symbols\Sets\TimeSymbolSet;
 use Pleets\Units\Symbols\TimeSymbol;
 
 trait HasSymbolSets
@@ -14,11 +14,11 @@ trait HasSymbolSets
         return [
             'Time' => [
                 TimeSymbol::class,
-                TimeSymbolSetSet::class,
+                TimeSymbolSet::class,
             ],
             'Information' => [
                 InformationSymbol::class,
-                InformationSymbolSetSet::class
+                InformationSymbolSet::class
             ]
         ];
     }
