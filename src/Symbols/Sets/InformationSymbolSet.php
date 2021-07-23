@@ -5,7 +5,7 @@ namespace Pleets\Units\Symbols\Sets;
 use Pleets\Units\Symbols\InformationSymbol;
 use Pleets\Units\Units\InformationUnit;
 
-class InformationSymbolSetSet extends BaseSymbolSet
+class InformationSymbolSet extends BaseSymbolSet
 {
     protected function symbol(): string
     {

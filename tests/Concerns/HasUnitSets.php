@@ -3,7 +3,7 @@
 namespace Tests\Concerns;
 
 use Pleets\Units\Units\InformationUnit;
-use Pleets\Units\Units\Sets\TimeUnitSetSet;
+use Pleets\Units\Units\Sets\TimeUnitSet;
 use Pleets\Units\Units\TimeUnit;
 use Tests\Units\InformationUnitSetSet;
 
@@ -14,7 +14,7 @@ trait HasUnitSets
         return [
             'Time' => [
                 TimeUnit::class,
-                TimeUnitSetSet::class,
+                TimeUnitSet::class,
             ],
             'Information' => [
                 InformationUnit::class,

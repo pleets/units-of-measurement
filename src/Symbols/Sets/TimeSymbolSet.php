@@ -1,11 +1,11 @@
 <?php
 
-namespace Pleets\Units\Units\Sets;
+namespace Pleets\Units\Symbols\Sets;
 
 use Pleets\Units\Symbols\TimeSymbol;
 use Pleets\Units\Units\TimeUnit;
 
-class TimeUnitSetSet extends BaseUnitSet
+class TimeSymbolSet extends BaseSymbolSet
 {
     protected function symbol(): string
     {
